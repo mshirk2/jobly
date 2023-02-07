@@ -1,12 +1,15 @@
 import React from "react";
-import CompanyDetail from "./CompanyDetail";
+import { Link } from "react-router-dom";
 
-function CompanyCard() {
+function CompanyCard({handle, name, description, logoUrl}) {
     return (
-        <div>
-            <h3>This is a company card</h3>
-            <CompanyDetail/>
-        </div>
+        <Link className="CompanyCard" to={`/companies/${handle}`}>
+            <div>
+                <h5>{name}</h5>
+                <img src={logoUrl} alt={name}/>
+                <p><small>{description}</small></p>
+            </div>
+        </Link>
     );
 }
 

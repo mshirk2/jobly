@@ -1,32 +1,39 @@
 import React, { useEffect, useState } from "react";
-import CompanyCard from "./CompanyCard";
 import JoblyApi from './api';
-import { ListGroup, ListGroupItem } from "reactstrap";
-import { Link } from "react-router-dom";
+import CompanyCard from "./CompanyCard";
 
 function CompanyList() {
     const [companies, setCompanies] = useState([]);
 
-    useEffect(() => {
-      async function request(){
-        let companies = await JoblyApi.request('companies');
+    useEffect(function getCompaniesOnMount(){
+        getCompanies();
+    }, []);
+
+    async function getCompanies(){
+        let companies = await JoblyApi.getCompanies();
         setCompanies(companies);
-      } request();
-    }, [])
+    }
+
+    console.log("CompanyList companies = ", companies)
 
     return (
-        <div>
-            <h2>This is company list</h2>
-            <ListGroup>
-                {companies.map(company => (
-                    <Link to={`/companies/${company.id}`} key={company.id}>
-                        <ListGroupItem>{company.name}</ListGroupItem>
-                    </Link>
-                ))}
-            </ListGroup>
-            <CompanyCard/>
-            <CompanyCard/>
-            <CompanyCard/>
+        <div className="CompanyList">
+            <h2>Company List</h2>
+            {companies.length ? 
+                (
+                    <div className="CompanyList-list">
+                        {companies.map(c => (
+                            <CompanyCard
+                                key={c.handle}
+                                handle={c.handle}
+                                name={c.name}
+                                description={c.description}
+                                logoUrl={c.logoUrl}
+                            />
+                        ))}
+                    </div>
+                ) : (<p>Results Not Found</p>)
+            }
         </div>
     );
 }
