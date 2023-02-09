@@ -8,6 +8,7 @@ import ProfileForm from './ProfileForm';
 import CompanyList from './CompanyList';
 import CompanyDetail from './CompanyDetail';
 import JobList from './JobList';
+import JobDetail from './JobDetail';
 
 function Routes() {
     return (
@@ -34,6 +35,9 @@ function Routes() {
                 </Route>
                 <Route exact path="/jobs">
                     <JobList />
+                </Route>
+                <Route exact path="/jobs/:id">
+                    <JobDetail />
                 </Route>
                 <Route>
                     <div className='404'>

@@ -15,8 +15,6 @@ function CompanyList() {
         setCompanies(companies);
     }
 
-    console.log("CompanyList companies = ", companies)
-
     return (
         <div className="CompanyList">
             <SearchForm searchFor={getCompanies}/>
