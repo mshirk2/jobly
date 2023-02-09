@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function SignupForm() {
-    const [signupForm, updateSignupForm] = useState({});
+    const [signupForm, setSignupForm] = useState({});
     const history = useHistory();
 
     function handleChange(e) {
         e.persist();
-        updateSignupForm(f => ({ ...f, [e.target.name]: e.target.value}));
+        setSignupForm(f => ({ ...f, [e.target.name]: e.target.value}));
     }
 
     function handleSubmit(e) {

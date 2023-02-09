@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function ProfileForm() {
-    const [profileForm, updateProfileForm] = useState({});
+    const [profileForm, setProfileForm] = useState({});
     const history = useHistory();
 
     function handleChange(e) {
         e.persist();
-        updateProfileForm(f => ({ ...f, [e.target.name]: e.target.value}));
+        setProfileForm(f => ({ ...f, [e.target.name]: e.target.value}));
     }
 
     function handleSubmit(e) {
