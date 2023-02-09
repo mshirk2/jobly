@@ -2,11 +2,14 @@ import React from 'react';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import NavBar from './NavBar';
 import Home from './Home';
+import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
+import ProfileForm from './ProfileForm';
 import CompanyList from './CompanyList';
 import CompanyDetail from './CompanyDetail';
+import JobList from './JobList';
 
 function Routes() {
-
     return (
         <BrowserRouter>
             <NavBar />
@@ -15,13 +18,13 @@ function Routes() {
                     <Home/>
                 </Route>
                 <Route exact path="/login">
-                    This is login
+                    <LoginForm />
                 </Route>
                 <Route exact path="/signup">
-                    This is signup
+                    <SignupForm />
                 </Route>
                 <Route exact path="/profile">
-                    This is profile
+                    <ProfileForm />
                 </Route>
                 <Route exact path="/companies">
                     <CompanyList />
@@ -30,7 +33,7 @@ function Routes() {
                     <CompanyDetail />
                 </Route>
                 <Route exact path="/jobs">
-                    This is job list
+                    <JobList />
                 </Route>
                 <Route>
                     <div className='404'>
