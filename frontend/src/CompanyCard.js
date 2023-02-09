@@ -5,8 +5,8 @@ function CompanyCard({handle, name, description, logoUrl}) {
     return (
         <Link className="CompanyCard" to={`/companies/${handle}`}>
             <div>
-                <h5>{name}</h5>
                 <img src={logoUrl} alt={name}/>
+                <h5>{name}</h5>
                 <p><small>{description}</small></p>
             </div>
         </Link>

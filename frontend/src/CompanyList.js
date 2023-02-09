@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import JoblyApi from './api';
+import SearchForm from "./SearchForm";
 import CompanyCard from "./CompanyCard";
 
 function CompanyList() {
@@ -9,8 +10,8 @@ function CompanyList() {
         getCompanies();
     }, []);
 
-    async function getCompanies(){
-        let companies = await JoblyApi.getCompanies();
+    async function getCompanies(name){
+        let companies = await JoblyApi.getCompanies(name);
         setCompanies(companies);
     }
 
@@ -18,6 +19,7 @@ function CompanyList() {
 
     return (
         <div className="CompanyList">
+            <SearchForm searchFor={getCompanies}/>
             <h2>Company List</h2>
             {companies.length ? 
                 (

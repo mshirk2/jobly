@@ -17,6 +17,7 @@ function CompanyDetail() {
 
     return (
         <div className="CompanyDetail">
+            <img src={company.logoUrl} alt={company.name}/>
             <h4>{company.name}</h4>
             <p>{company.description}</p>
             <p>Current jobs open..</p>
