@@ -1,6 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
-import NavBar from './NavBar';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import Home from './Home';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
@@ -10,10 +9,9 @@ import CompanyDetail from './CompanyDetail';
 import JobList from './JobList';
 import JobDetail from './JobDetail';
 
-function Routes() {
+function Routes({signup, login}) {
     return (
-        <BrowserRouter>
-            <NavBar />
+        <div className='Routes'>
             <Switch>
                 <Route exact path="/">
                     <Home/>
@@ -22,7 +20,7 @@ function Routes() {
                     <LoginForm />
                 </Route>
                 <Route exact path="/signup">
-                    <SignupForm />
+                    <SignupForm signup={signup}/>
                 </Route>
                 <Route exact path="/profile">
                     <ProfileForm />
@@ -46,7 +44,7 @@ function Routes() {
                 </Route>
                 <Redirect to="/" />
             </Switch>
-        </BrowserRouter>
+        </div>
     )
 }
 

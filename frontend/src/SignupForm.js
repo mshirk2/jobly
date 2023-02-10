@@ -1,22 +1,30 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function SignupForm() {
-    const [signupForm, setSignupForm] = useState({});
+function SignupForm({signup}) {
+    const [formData, setFormData] = useState({
+        username: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+    });
     const history = useHistory();
 
     function handleChange(e) {
         e.persist();
-        setSignupForm(f => ({ ...f, [e.target.name]: e.target.value}));
+        setFormData(f => ({ ...f, [e.target.name]: e.target.value}));
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        // addUser(signupForm);
-        history.push(`/companies`);
+        let result = await signup(formData)
+        if (result.success){
+            history.push(`/companies`);
+        }
     }
 
-    let {username, email, firstName, lastName, password} = signupForm;
+    let {username, email, firstName, lastName, password} = formData;
 
     return (
         <section>
