@@ -21,6 +21,7 @@ function JobDetail(){
                 <>
                 <h4>{job.title}</h4>
                 <p>{job.company.name}</p>
+                <p>{job.company.description}</p>
                 <p>Salary: ${job.salary}</p>
                 <p>Equity: {job.equity}</p>
                 </>
