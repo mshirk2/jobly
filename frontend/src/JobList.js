@@ -10,8 +10,8 @@ function JobList() {
         getJobs();
     }, []);
 
-    async function getJobs(name){
-        let jobs = await JoblyApi.getJobs(name);
+    async function getJobs(title){
+        let jobs = await JoblyApi.getJobs(title);
         setJobs(jobs);
     }
 
@@ -19,7 +19,7 @@ function JobList() {
         <div className="JobList">
             <SearchForm searchFor={getJobs}/>
             <h2>Job List</h2>
-            {jobs.length ? 
+            {jobs ? 
                 (
                     <div className="JobList-list">
                         {jobs.map(j => (
@@ -29,7 +29,7 @@ function JobList() {
                                 title={j.title}
                                 salary={j.salary}
                                 equity={j.equity}
-                                companyHandle={j.company_handle}
+                                companyName={j.companyName}
                             />
                         ))}
                     </div>

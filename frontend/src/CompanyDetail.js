@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import JoblyApi from './api';
+import JobCard from "./JobCard";
 
 function CompanyDetail() {
     const [company, setCompany] = useState([]);
@@ -20,7 +21,22 @@ function CompanyDetail() {
             <img src={company.logoUrl} alt={company.name}/>
             <h4>{company.name}</h4>
             <p>{company.description}</p>
-            <p>Current jobs open..</p>
+            {company.jobs ? 
+                (
+                    <div className="JobList-list">
+                        {company.jobs.map(j => (
+                            <JobCard
+                                key={j.id}
+                                id={j.id}
+                                title={j.title}
+                                salary={j.salary}
+                                equity={j.equity}
+                                companyName={j.companyName}
+                            />
+                        ))}
+                    </div>
+                ) : (<p>No open positions</p>)
+            }
         </div>
     );
 }
