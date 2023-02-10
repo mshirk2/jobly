@@ -18,13 +18,14 @@ function JobDetail(){
     return (
         <div className="JobDetail">
             {job ? (
-                <>
-                <h4>{job.title}</h4>
-                <p>{job.company.name}</p>
-                <p>{job.company.description}</p>
-                <p>Salary: ${job.salary}</p>
-                <p>Equity: {job.equity}</p>
-                </>
+                <div>
+                    {job.company.logoUrl && <img src={job.company.logoUrl} alt={job.company.name}/>}
+                    <h4>{job.title}</h4>
+                    <p>{job.company.name}</p>
+                    <p>{job.company.description}</p>
+                    {job.salary && <div>Salary: ${job.salary}</div>}
+                    {job.equity > 0 && <div>Equity: {job.equity}</div>}
+                </div>
             ) : null}
         </div>
     );
