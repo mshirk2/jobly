@@ -5,8 +5,8 @@ function Home() {
     return (
         <div>
             <h1>Welcome to Jobly</h1>
-            <Link to="/login" className="btn">Login</Link>
-            <Link to="/signup" className="btn">Signup</Link>
+            <Link to="/login" className="btn">Log In</Link>
+            <Link to="/signup" className="btn">Sign Up</Link>
         </div>
     )
 }
