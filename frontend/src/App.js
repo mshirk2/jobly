@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {BrowserRouter} from 'react-router-dom';
+import useLocalStorage from './hooks/useLocalStorage';
 import jwt from "jsonwebtoken";
 import JoblyApi from './api';
 import UserContext from './UserContext';
@@ -8,9 +9,10 @@ import Routes from './Routes';
 import './App.css';
 
 
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useLocalStorage(null);
 
   useEffect(function getUserOnMount(){
 
@@ -25,8 +27,6 @@ function App() {
 
     getCurrentUser();
   }, [token]);
-  
-
 
   async function signup(signupData){
     let token = await JoblyApi.signup(signupData);
@@ -40,12 +40,17 @@ function App() {
     return {success: true}
   }
 
+  function logout(){
+    setCurrentUser(null);
+    setToken(null);
+  }
+
   return (
     <BrowserRouter>
       <UserContext.Provider
         value={{currentUser, setCurrentUser}}>
         <div className="App">
-          <NavBar />
+          <NavBar logout={logout} />
           <Routes signup={signup} login={login}/>
         </div>
       </UserContext.Provider>
