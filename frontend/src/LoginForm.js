@@ -30,7 +30,7 @@ function LoginForm({login}) {
                 {formErrors.length ? 
                     <Alert color="danger">{formErrors}</Alert> 
                     : null }
-                <h2 className="m-4">Log In</h2>
+                <h2 className="m-4">Login</h2>
                 <div>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group row">
@@ -46,12 +46,12 @@ function LoginForm({login}) {
                                 required
                             />
                         </div>
-                        <div className="form-group  row">
+                        <div className="form-group row">
                             <label htmlFor="password">Password</label>
                             <input
                                 name="password"
                                 id="password"
-                                type="password"
+                                type="text"
                                 className="form-control"
                                 onChange={handleChange}
                                 autoComplete="current-password"
@@ -61,7 +61,7 @@ function LoginForm({login}) {
                         <div>
                             <input
                                 type="Submit"
-                                value="Log In"
+                                value="Login"
                                 className="btn btn-primary"
                                 readOnly
                             />

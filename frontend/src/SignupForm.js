@@ -40,12 +40,13 @@ function SignupForm({signup}) {
                 <div>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group row">
-                            <label htmlFor="username" className="">Username</label>
+                            <label htmlFor="username">Username</label>
                             <input
                                 name="username"
                                 id="username"
                                 type="text"
                                 className="form-control"
+                                autoComplete="username"
                                 onChange={handleChange}
                                 value={username}
                                 required
@@ -56,17 +57,17 @@ function SignupForm({signup}) {
                             <input
                                 name="email"
                                 id="email"
-                                type="email"
+                                type="text"
                                 className="form-control"
                                 onChange={handleChange}
                                 value={email}
                             />
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="first-name">First Name</label>
+                            <label htmlFor="firstName">First Name</label>
                             <input
-                                name="first-name"
-                                id="first-name"
+                                name="firstName"
+                                id="firstName"
                                 type="text"
                                 className="form-control"
                                 onChange={handleChange}
@@ -74,10 +75,10 @@ function SignupForm({signup}) {
                             />
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="last-name">Last Name</label>
+                            <label htmlFor="lastName">Last Name</label>
                             <input
-                                name="last-name"
-                                id="last-name"
+                                name="lastName"
+                                id="lastName"
                                 type="text"
                                 className="form-control"
                                 onChange={handleChange}
@@ -89,8 +90,9 @@ function SignupForm({signup}) {
                             <input
                                 name="password"
                                 id="password"
-                                type="password"
+                                type="text"
                                 className="form-control"
+                                autoComplete="current-password"
                                 onChange={handleChange}
                                 value={password}
                             />
