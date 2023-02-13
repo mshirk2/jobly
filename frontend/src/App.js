@@ -12,16 +12,22 @@ import './App.css';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [token, setToken] = useLocalStorage(null);
+  const [token, setToken] = useLocalStorage("jobly-token");
 
   useEffect(function getUserOnMount(){
 
     async function getCurrentUser(){
       if (token){
-        let {username} = jwt.decode(token);
-        JoblyApi.token = token;
-        let currentUser = await JoblyApi.getCurrentUser(username);
-        setCurrentUser(currentUser);
+        try {
+          let {username} = jwt.decode(token);
+          JoblyApi.token = token;
+          let currentUser = await JoblyApi.getCurrentUser(username);
+          setCurrentUser(currentUser);
+        } catch (err){
+          console.error(err)
+          setCurrentUser(null);
+        }
+        
       }
     }
 
