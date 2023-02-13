@@ -34,8 +34,9 @@ function SignupForm({signup}) {
         <div className="SignupForm">
             <div className="container col-md-6">
                 {formErrors.length ? 
-                    <Alert color="danger">{formErrors}</Alert> 
-                    : null }
+                    <Alert color="warning">{formErrors.map(error =>(<p key={error}>{error}</p>))}</Alert> 
+                    : null 
+                }
                 <h2 className="m-4">Sign Up</h2>
                 <div>
                     <form onSubmit={handleSubmit}>

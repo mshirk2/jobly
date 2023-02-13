@@ -3,7 +3,10 @@ import { useHistory } from "react-router-dom";
 import { Alert } from 'reactstrap';
 
 function LoginForm({login}) {
-    const [formData, setFormData] = useState({username: "", password: "",});
+    const [formData, setFormData] = useState({
+        username: "", 
+        password: "",
+    });
     const [formErrors, setFormErrors] = useState([]);
     const history = useHistory();
 
@@ -28,8 +31,9 @@ function LoginForm({login}) {
         <div className="LoginForm">
             <div className="container col-md-6">
                 {formErrors.length ? 
-                    <Alert color="danger">{formErrors}</Alert> 
-                    : null }
+                    <Alert color="warning">{formErrors.map(error =>(<p  key={error}>{error}</p>))}</Alert>  
+                    : null 
+                }
                 <h2 className="m-4">Login</h2>
                 <div>
                     <form onSubmit={handleSubmit}>

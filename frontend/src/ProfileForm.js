@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
 import JoblyApi from "./api";
 import UserContext from "./UserContext";
+import { Alert } from 'reactstrap';
 
 function ProfileForm() {
     const {currentUser, setCurrentUser} = useContext(UserContext);
@@ -12,11 +12,15 @@ function ProfileForm() {
         username: currentUser.username,
         password: "",
     });
-    const history = useHistory();
+
+    const [formErrors, setFormErrors] = useState([]);
+    const [updateSuccess, setUpdateSuccess] = useState(false);
+
 
     function handleChange(e) {
         e.persist();
         setFormData(f => ({ ...f, [e.target.name]: e.target.value}));
+        setFormErrors([]);
     }
 
     async function handleSubmit(e) {
@@ -25,26 +29,35 @@ function ProfileForm() {
             firstName: formData.firstName,
             lastName: formData.lastName,
             email: formData.email,
-            password: formData.password,
         };
         let username = formData.username
         let updatedUser;
 
         try {
             updatedUser = await JoblyApi.updateProfile(username, updatedData);
-        } catch (err){
-            console.log(err);
+        } catch (errors){
+            setFormErrors(errors);
+            return;
         }
         
-        setCurrentUser(updatedUser);
+        setFormErrors([]);
+        setUpdateSuccess(true);
         setFormData(f => ({ ...f, password: ""}));
-        history.push(`/companies`);
+        setCurrentUser(updatedUser);
         
     }
 
     return (
         <div className="ProfileForm">
             <div className="container col-md-6">
+                {formErrors.length ? 
+                    <Alert color="warning">{formErrors.map(error =>(<p key={error}>{error}</p>))}</Alert> 
+                    : null 
+                }
+                {updateSuccess ? 
+                    <Alert color="success">Changes saved.</Alert> 
+                    : null 
+                }
                 <h2 className="m-4">Update Profile</h2>
                 <div>
                     <form onSubmit={handleSubmit}>
@@ -87,7 +100,7 @@ function ProfileForm() {
                             />
                         </div>
                         <div className="form-group row">
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password">Enter password to save changes:</label>
                             <input
                                 name="password"
                                 id="password"

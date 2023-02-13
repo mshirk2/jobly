@@ -24,7 +24,7 @@ function App() {
           let currentUser = await JoblyApi.getCurrentUser(username);
           setCurrentUser(currentUser);
         } catch (err){
-          console.error(err)
+          console.error(err);
           setCurrentUser(null);
         }
         
@@ -35,15 +35,26 @@ function App() {
   }, [token]);
 
   async function signup(signupData){
-    let token = await JoblyApi.signup(signupData);
-    setToken(token);
-    return {success: true}
+    try {
+      let token = await JoblyApi.signup(signupData);
+      setToken(token);
+      return {success: true}
+    } catch (errors) {
+      console.error(errors);
+      return {success: false, errors}
+    }
+    
   }
 
   async function login(loginData){
-    let token = await JoblyApi.login(loginData);
-    setToken(token);
-    return {success: true}
+    try {
+      let token = await JoblyApi.login(loginData);
+      setToken(token);
+      return {success: true}
+    } catch (errors) {
+      console.error(errors);
+      return {success: false, errors}
+  }
   }
 
   function logout(){
