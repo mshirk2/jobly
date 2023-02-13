@@ -6,6 +6,7 @@ import JoblyApi from './api';
 import UserContext from './UserContext';
 import NavBar from './NavBar';
 import Routes from './Routes';
+import {Spinner} from 'reactstrap';
 import './App.css';
 
 
@@ -13,6 +14,7 @@ import './App.css';
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage("jobly-token");
+  const [infoLoaded, setInfoLoaded] = useState(false);
 
   useEffect(function getUserOnMount(){
 
@@ -27,8 +29,8 @@ function App() {
           console.error(err);
           setCurrentUser(null);
         }
-        
       }
+      setInfoLoaded(true);
     }
 
     getCurrentUser();
@@ -62,12 +64,14 @@ function App() {
     setToken(null);
   }
 
+  if (!infoLoaded) return <Spinner />
+
   return (
     <BrowserRouter>
       <UserContext.Provider
         value={{currentUser, setCurrentUser}}>
         <div className="App">
-          <NavBar logout={logout} />
+          <NavBar logout={logout} />         
           <Routes signup={signup} login={login}/>
         </div>
       </UserContext.Provider>

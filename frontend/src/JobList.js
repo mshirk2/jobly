@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import JoblyApi from "./api";
 import SearchForm from "./SearchForm";
 import JobCard from "./JobCard";
+import { Spinner } from "reactstrap";
 
 function JobList() {
-    const [jobs, setJobs] = useState([]);
+    const [jobs, setJobs] = useState(null);
 
     useEffect(function getJobsOnMount(){
         getJobs();
@@ -15,11 +16,13 @@ function JobList() {
         setJobs(jobs);
     }
 
+    if (!jobs) return <Spinner />
+
     return (
         <div className="JobList">
             <SearchForm searchFor={getJobs}/>
             <h2>Job List</h2>
-            {jobs ? 
+            {jobs.length ? 
                 (
                     <div className="JobList-list">
                         {jobs.map(j => (

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import JoblyApi from './api';
 import JobCard from "./JobCard";
+import { Spinner } from "reactstrap";
 
 function CompanyDetail() {
-    const [company, setCompany] = useState([]);
+    const [company, setCompany] = useState(null);
     const {handle} = useParams();
 
     useEffect(function getCompanyOnMount(){
@@ -15,6 +16,8 @@ function CompanyDetail() {
         let company = await JoblyApi.getCompany(handle);
         setCompany(company);
     }
+
+    if (!company) return <Spinner />
 
     return (
         <div className="CompanyDetail">
