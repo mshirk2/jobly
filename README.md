@@ -5,6 +5,8 @@ A full-stack web application, simulating a job board. This app includes a functi
 Create jobly database:
 
     createdb jobly
+    psql jobly < jobly-schema.sql
+    psql jobly < jobly-seed.sql
 
 Start server:
 
