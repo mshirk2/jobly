@@ -21,7 +21,7 @@ function CompanyDetail() {
 
     return (
         <div className="CompanyDetail">
-            <img src={company.logoUrl} alt={company.name}/>
+            {company.logoUrl && <img src={company.logoUrl} alt={company.name}/>}
             <h4>{company.name}</h4>
             <p>{company.description}</p>
             {company.jobs ? 

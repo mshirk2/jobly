@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
 
-function JobCard({id, title, salary, equity, companyName}) {
+function JobCard({id, title, salary, equity, companyName, companyHandle, logoUrl=null}) {
     const {appliedJobs, applyToJob} = useContext(UserContext);
     const [applied, setApplied] = useState();
 
@@ -19,15 +19,17 @@ function JobCard({id, title, salary, equity, companyName}) {
     return (
         <div className="JobCard card">
             {applied}
-            <Link to={`/jobs/${id}`}>
-                <div className="card-body">
+            <div className="card-body">
+                <Link to={`/jobs/${id}`}>
+                    {logoUrl && <img src={logoUrl} alt={companyName}/>}
                     <h5 className="card-title">{title}</h5>
+                </Link>
+                <Link to={`/companies/${companyHandle}`}>
                     <p className="card-subtitle">{companyName}</p>
-                    {salary && <div>Salary: ${salary}</div>}
-                    {equity > 0 && <div>Equity: {equity}</div>}
-
-                </div>
-            </Link>
+                </Link>
+                {salary && <div>Salary: ${salary}</div>}
+                {equity > 0 && <div>Equity: {equity}</div>}
+            </div>
             <button 
                 className="btn" 
                 onClick={handleApply}
