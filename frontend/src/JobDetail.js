@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import JoblyApi from './api';
 import UserContext from "./UserContext";
 import { Spinner } from "reactstrap";
+import formatSalary from "./hooks/useFormatSalary";
 
 function JobDetail(){
     const { id } = useParams();
@@ -41,7 +42,7 @@ function JobDetail(){
                     <p>{job.company.name}</p>
                 </Link>
                 <p>{job.company.description}</p>
-                {job.salary && <div>Salary: ${job.salary}</div>}
+                {job.salary && <div>Salary: {formatSalary(job.salary)}</div>}
                 {job.equity > 0 && <div>Equity: {job.equity}</div>}
                 <button 
                     className="btn" 

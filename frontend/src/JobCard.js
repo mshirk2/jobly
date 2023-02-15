@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import formatSalary from "./hooks/useFormatSalary";
 
 function JobCard({id, title, salary, equity, companyName, companyHandle, logoUrl=null}) {
 
@@ -13,7 +14,7 @@ function JobCard({id, title, salary, equity, companyName, companyHandle, logoUrl
                 <Link to={`/companies/${companyHandle}`}>
                     <p className="card-subtitle">{companyName}</p>
                 </Link>
-                {salary && <div>Salary: ${salary}</div>}
+                {salary && <div>Salary: {formatSalary(salary)}</div>}
                 {equity > 0 && <div>Equity: {equity}</div>}
             </div>
         </div>
