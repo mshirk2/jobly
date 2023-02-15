@@ -9,13 +9,13 @@ import Routes from './Routes';
 import {Spinner} from 'reactstrap';
 import './App.css';
 
-
-
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage("jobly-token");
   const [infoLoaded, setInfoLoaded] = useState(false);
   const [applications, setApplications] = useState(new Set([]));
+
+  console.log("App applications=", applications);
 
   useEffect(function getUserOnMount(){
 
@@ -66,14 +66,15 @@ function App() {
     setToken(null);
   }
 
-  function appliedJobs(id){
-    return applications.has(id);
+  function hasApplied(id){
+    return applications.has(parseInt(id));
   }
 
-  function applyToJob(id){
-    if (appliedJobs(id)) return;
+  async function applyToJob(id){
+    if (hasApplied(id)) return;
+    id = parseInt(id);
     JoblyApi.applyToJob(currentUser.username, id);
-    setApplications(new Set([...applications, id]))
+    setApplications(new Set([...applications, id]));
   }
 
   if (!infoLoaded) return <Spinner />
@@ -84,7 +85,7 @@ function App() {
         value={{
           currentUser, 
           setCurrentUser, 
-          appliedJobs, 
+          hasApplied, 
           applyToJob,
         }}
       >

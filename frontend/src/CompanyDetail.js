@@ -5,17 +5,16 @@ import JobCard from "./JobCard";
 import { Spinner } from "reactstrap";
 
 function CompanyDetail() {
-    const [company, setCompany] = useState(null);
     const {handle} = useParams();
+    const [company, setCompany] = useState(null);
 
     useEffect(function getCompanyOnMount(){
+        async function getCompany(){
+            let company = await JoblyApi.getCompany(handle);
+            setCompany(company);
+        }
         getCompany();
     }, [handle]);
-
-    async function getCompany(){
-        let company = await JoblyApi.getCompany(handle);
-        setCompany(company);
-    }
 
     if (!company) return <Spinner />
 
