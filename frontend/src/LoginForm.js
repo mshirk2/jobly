@@ -29,12 +29,12 @@ function LoginForm({login}) {
 
     return (
         <div className="LoginForm">
-            <div className="container col-md-6">
+            <div className="container">
                 {formErrors.length ? 
                     <Alert color="warning">{formErrors.map(error =>(<p  key={error}>{error}</p>))}</Alert>  
                     : null 
                 }
-                <h2 className="m-4">Login</h2>
+                <h2 className="display-4 m-4">Login</h2>
                 <div>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group row">
@@ -66,7 +66,7 @@ function LoginForm({login}) {
                             <input
                                 type="Submit"
                                 value="Login"
-                                className="btn btn-primary"
+                                className="btn btn-dark"
                                 readOnly
                             />
                         </div>

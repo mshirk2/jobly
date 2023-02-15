@@ -20,8 +20,8 @@ function CompanyList() {
 
     return (
         <div className="CompanyList">
+            <h2 className="display-4">Explore Companies</h2>
             <SearchForm searchFor={getCompanies}/>
-            <h2>Company List</h2>
             {companies.length ? 
                 (
                     <div className="CompanyList-list">

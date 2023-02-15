@@ -17,17 +17,21 @@ function SearchForm({searchFor}){
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                <input
-                    name="searchTerm"
-                    placeholder="Enter search term..."
-                    value={searchTerm}
-                    onChange={handleChange}
-                />
-                <input
-                    type="Submit"
-                    value="Search"
-                    readOnly
-                />
+                <div className="form-group row m-4">
+                    <input
+                        name="searchTerm"
+                        placeholder="Enter search term..."
+                        value={searchTerm}
+                        className="form-control col-md-10"
+                        onChange={handleChange}
+                    />
+                    <input
+                        type="Submit"
+                        value="Search"
+                        className="form-control col-md-2"
+                        readOnly
+                    />
+                </div>
             </form>
         </div>
     )

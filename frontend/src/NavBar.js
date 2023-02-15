@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'reactstrap';
-import './NavBar.css'
 import UserContext from './UserContext';
+import './NavBar.css'
 
 function NavBar({logout}) {
     const { currentUser } = useContext(UserContext);
@@ -11,16 +11,16 @@ function NavBar({logout}) {
         return(
             <>
                 <NavItem>
-                    <NavLink to="/companies">Companies</NavLink>
+                    <NavLink to="/companies" className="nav-link">Companies</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/jobs">Jobs</NavLink>
+                    <NavLink to="/jobs" className="nav-link">Jobs</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/profile">Profile</NavLink>
+                    <NavLink to="/profile" className="nav-link">Profile</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/" onClick={logout}>Logout, {currentUser.username}</NavLink>
+                    <NavLink to="/" onClick={logout} className="nav-link">Logout, {currentUser.firstName || currentUser.username}</NavLink>
                 </NavItem>
             </>
         );
@@ -30,21 +30,21 @@ function NavBar({logout}) {
         return(
             <>
                 <NavItem>
-                    <NavLink to='/login'>Login</NavLink>
+                    <NavLink to='/login' className="nav-link">Login</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to='/signup'>Sign Up</NavLink>
+                    <NavLink to='/signup' className="nav-link">Sign Up</NavLink>
                 </NavItem>
             </>
         );
     }
 
     return (
-        <Navbar expand="md" color='light'>
-            <NavLink exact to="/" className="navbar-brand">
+        <Navbar expand="md" className='Navbar mb-4'>
+            <NavLink exact to="/" className="navbar-brand nav-link">
                 Jobly
             </NavLink>
-            <Nav className='ml-auto' navbar>
+            <Nav className='ml-auto'>
                 {currentUser ? loggedInNav() : loggedOutNav()}
             </Nav>
         </Navbar>

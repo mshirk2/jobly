@@ -21,8 +21,8 @@ function JobList() {
 
     return (
         <div className="JobList">
+            <h2 className="display-4">Explore Jobs</h2>
             <SearchForm searchFor={getJobs}/>
-            <h2>Job List</h2>
             {jobs.length ? 
                 (
                     <div className="JobList-list">

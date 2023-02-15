@@ -32,12 +32,12 @@ function SignupForm({signup}) {
 
     return (
         <div className="SignupForm">
-            <div className="container col-md-6">
+            <div className="container">
                 {formErrors.length ? 
                     <Alert color="warning">{formErrors.map(error =>(<p key={error}>{error}</p>))}</Alert> 
                     : null 
                 }
-                <h2 className="m-4">Sign Up</h2>
+                <h2 className="m-4 display-4">Sign Up</h2>
                 <div>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group row">
@@ -102,7 +102,7 @@ function SignupForm({signup}) {
                             <input
                                 type="Submit"
                                 value="Sign Up"
-                                className="btn btn-primary"
+                                className="btn btn-dark"
                                 readOnly
                             />
                         </div>

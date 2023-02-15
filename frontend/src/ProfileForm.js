@@ -49,7 +49,7 @@ function ProfileForm() {
 
     return (
         <div className="ProfileForm">
-            <div className="container col-md-6">
+            <div className="container">
                 {formErrors.length ? 
                     <Alert color="warning">{formErrors.map(error =>(<p key={error}>{error}</p>))}</Alert> 
                     : null 
@@ -58,7 +58,7 @@ function ProfileForm() {
                     <Alert color="success">Changes saved.</Alert> 
                     : null 
                 }
-                <h2 className="m-4">Update Profile</h2>
+                <h4 className="m-4 display-4">Edit Profile</h4>
                 <div>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group row">
@@ -113,8 +113,8 @@ function ProfileForm() {
                         <div>
                             <input
                                 type="Submit"
-                                value="Update"
-                                className="btn btn-primary"
+                                value="Save"
+                                className="btn btn-dark"
                                 readOnly
                             />
                         </div>

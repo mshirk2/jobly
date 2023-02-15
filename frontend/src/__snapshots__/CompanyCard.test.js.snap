@@ -5,24 +5,30 @@ exports[`matches snapshot 1`] = `
   <div
     class="CompanyCard card"
   >
-    <a
-      href="/companies/test-handle"
+    <div
+      class="card-body"
     >
-      <div
-        class="card-body"
+      <a
+        class="link"
+        href="/companies/test-handle"
       >
+        <img
+          alt="Test Company"
+          class="logo"
+          src="placeholderLogo.png"
+        />
         <h5
           class="card-title mt-2"
         >
           Test Company
         </h5>
-        <p>
-          <small>
-            This is a test
-          </small>
-        </p>
-      </div>
-    </a>
+      </a>
+      <p>
+        <small>
+          This is a test
+        </small>
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
