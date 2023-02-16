@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import placeholderLogo from './placeholderLogo.png';
+import placeholderLogo from '../images/placeholderLogo.png';
 import './CompanyCard.css'
 
 function CompanyCard({handle, name, description, logoUrl}) {

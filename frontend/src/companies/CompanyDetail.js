@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import JoblyApi from './api';
-import JobCard from "./JobCard";
+import JoblyApi from '../api';
+import JobCard from "../jobs/JobCard";
 import { Spinner } from "reactstrap";
+import placeholderLogo from "../images/placeholderLogo.png"
 import './CompanyDetail.css';
-import placeholderLogo from "./placeholderLogo.png"
+
 
 function CompanyDetail() {
     const {handle} = useParams();

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import formatSalary from "./hooks/useFormatSalary";
-import placeholderLogo from "./placeholderLogo.png"
+import formatSalary from "../hooks/useFormatSalary";
+import placeholderLogo from "../images/placeholderLogo.png"
 import "./JobCard.css"
 
 function JobCard({id, title, salary, equity, companyName, companyHandle, logoUrl}) {

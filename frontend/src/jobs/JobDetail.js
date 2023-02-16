@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import JoblyApi from './api';
-import UserContext from "./UserContext";
+import JoblyApi from '../api';
+import UserContext from "../auth/UserContext";
 import { Spinner } from "reactstrap";
-import formatSalary from "./hooks/useFormatSalary";
-import placeholderLogo from "./placeholderLogo.png"
+import formatSalary from "../hooks/useFormatSalary";
+import placeholderLogo from "../images/placeholderLogo.png"
 import './JobDetail.css'
 
 function JobDetail(){

@@ -3,9 +3,9 @@ import {BrowserRouter} from 'react-router-dom';
 import useLocalStorage from './hooks/useLocalStorage';
 import jwt from "jsonwebtoken";
 import JoblyApi from './api';
-import UserContext from './UserContext';
-import NavBar from './NavBar';
-import Routes from './Routes';
+import UserContext from './auth/UserContext';
+import NavBar from './routes-nav/NavBar';
+import Routes from './routes-nav/Routes';
 import {Spinner} from 'reactstrap';
 import './App.css';
 

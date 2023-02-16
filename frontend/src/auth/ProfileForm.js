@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import JoblyApi from "./api";
+import JoblyApi from "../api";
 import UserContext from "./UserContext";
 import { Alert } from 'reactstrap';
 
