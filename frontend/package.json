@@ -30,5 +30,6 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5"
-  }
+  },
+   "homepage" : "https://mshirk-jobly.herokuapp.com/"
 }

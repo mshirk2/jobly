@@ -13,7 +13,6 @@ function JobList() {
 
     async function getJobs(title){
         let jobs = await JoblyApi.getJobs(title);
-        console.log("jobs=", jobs)
         setJobs(jobs);
     }
 
