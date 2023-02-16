@@ -63,7 +63,7 @@ function ProfileForm() {
                     <form onSubmit={handleSubmit}>
                         <div className="form-group row">
                             <label htmlFor="username">Username</label>
-                            <p className="form-control-plaintext">{formData.username}
+                            <p className="form-control-plaintext lead">{formData.username}
                             </p>
                         </div>
                         <div className="form-group row">
@@ -71,7 +71,7 @@ function ProfileForm() {
                             <input
                                 name="email"
                                 id="email"
-                                type="text"
+                                type="email"
                                 className="form-control"
                                 onChange={handleChange}
                                 value={formData.email}
@@ -104,7 +104,7 @@ function ProfileForm() {
                             <input
                                 name="password"
                                 id="password"
-                                type="text"
+                                type="password"
                                 className="form-control"
                                 onChange={handleChange}
                                 value={formData.password}

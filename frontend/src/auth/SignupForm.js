@@ -58,7 +58,7 @@ function SignupForm({signup}) {
                             <input
                                 name="email"
                                 id="email"
-                                type="text"
+                                type="email"
                                 className="form-control"
                                 onChange={handleChange}
                                 value={email}
@@ -91,7 +91,7 @@ function SignupForm({signup}) {
                             <input
                                 name="password"
                                 id="password"
-                                type="text"
+                                type="password"
                                 className="form-control"
                                 autoComplete="current-password"
                                 onChange={handleChange}

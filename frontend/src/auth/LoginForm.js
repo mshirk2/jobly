@@ -55,7 +55,7 @@ function LoginForm({login}) {
                             <input
                                 name="password"
                                 id="password"
-                                type="text"
+                                type="password"
                                 className="form-control"
                                 onChange={handleChange}
                                 autoComplete="current-password"
