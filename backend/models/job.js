@@ -50,7 +50,8 @@ class Job {
                         j.salary,
                         j.equity,
                         j.company_handle AS "companyHandle",
-                        c.name AS "companyName"
+                        c.name AS "companyName",
+                        c.logo_url AS "logoUrl"
                  FROM jobs j 
                    LEFT JOIN companies AS c ON c.handle = j.company_handle`;
     let whereExpressions = [];
