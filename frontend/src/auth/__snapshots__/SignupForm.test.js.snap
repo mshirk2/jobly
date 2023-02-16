@@ -94,6 +94,7 @@ exports[`matches snapshot 1`] = `
               class="form-control"
               id="password"
               name="password"
+              required=""
               type="password"
               value=""
             />

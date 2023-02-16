@@ -60,6 +60,7 @@ function LoginForm({login}) {
                                 onChange={handleChange}
                                 autoComplete="current-password"
                                 value={password}
+                                required
                             />
                         </div>
                         <div>

@@ -15,7 +15,7 @@ function Home() {
                     : (
                         <p>
                             <Link to="/login" className="btn btn-dark mr-3 px-4">Login</Link>
-                            <Link to="/signup" className="btn btn-dark px-4">Signup</Link>
+                            <Link to="/signup" className="btn btn-dark px-4">Sign Up</Link>
                         </p>
                     )
                 }

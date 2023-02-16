@@ -12,7 +12,6 @@ function JobDetail(){
     const [job, setJob] = useState(null);
     const { hasApplied, applyToJob } = useContext(UserContext);
     const [applied, setApplied] = useState();
-    console.log("applied=", applied);
 
     useEffect(function getJobAndAppliedStatusOnMount(){
         async function getJob(){

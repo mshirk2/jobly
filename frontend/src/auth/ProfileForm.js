@@ -108,6 +108,7 @@ function ProfileForm() {
                                 className="form-control"
                                 onChange={handleChange}
                                 value={formData.password}
+                                required
                             />
                         </div>
                         <div>

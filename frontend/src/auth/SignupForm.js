@@ -96,6 +96,7 @@ function SignupForm({signup}) {
                                 autoComplete="current-password"
                                 onChange={handleChange}
                                 value={password}
+                                required
                             />
                         </div>
                         <div>

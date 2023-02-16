@@ -15,8 +15,6 @@ function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
   const [applications, setApplications] = useState(new Set([]));
 
-  console.log("App applications=", applications);
-
   useEffect(function getUserOnMount(){
 
     async function getCurrentUser(){
