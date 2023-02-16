@@ -1,5 +1,5 @@
 # Jobly
-A full-stack we application simulating a job board. This app features a functional database, RESTful API, thoughtful component hierarchy, routing, authentication, and user profiles for searching and applying to job postings.
+A full-stack web application simulating a job board. This app features a functional database, RESTful API, thoughtful component hierarchy, routing, authentication, and user profiles for searching and applying to job postings.
 
 Try it out here: https://mshirk-jobly.surge.sh/
 
